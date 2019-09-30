@@ -19,8 +19,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.GenericApplicationContext;
 import vikram.sample.SpringBootMain.DatasourceConfig;
+import vikram.sample.rest.RuleTypesController;
 
 @SpringBootApplication
 @EnableConfigurationProperties({DatasourceConfig.class})
@@ -32,7 +34,8 @@ public class SpringBootMain {
   public static void main(String[] args) throws LiquibaseException, SQLException {
     ConfigurableApplicationContext ctx = SpringApplication.run(SpringBootMain.class, args);
     applyMultiplePureLiquibases(ctx);
-
+    RuleTypesController rules = ctx.getBean(RuleTypesController.class);
+    rules=rules;
   }
 
   //TODO this is pure core liquibase appliance without any spring and beans wrapping

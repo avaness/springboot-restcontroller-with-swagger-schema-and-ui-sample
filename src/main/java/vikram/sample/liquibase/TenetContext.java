@@ -1,4 +1,4 @@
-package vikram.sample.sources_from_vikram;
+package vikram.sample.liquibase;
 
 public class TenetContext {
 
